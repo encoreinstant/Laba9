@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Laba9.IO">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAAAAAAAAAAEAAAAAAAAAAAAACAAACAAAAAAA=</HashCode>
+      <FileName>IO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Laba9.Mark">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAAEAAAAARBUAAQAAAAAEQAAAAAAAAAAAhQA=</HashCode>
+      <FileName>Mark.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Laba9.MarkArray">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAAAAAAAAAADAAAAABAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MarkArray.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Laba9.Program">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
