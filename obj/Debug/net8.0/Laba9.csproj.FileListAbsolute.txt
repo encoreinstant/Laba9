@@ -16,3 +16,4 @@ D:\python codes\Laba9\bin\Debug\net8.0\EntityFramework.SqlServer.dll
 D:\python codes\Laba9\bin\Debug\net8.0\EntityFramework.dll
 D:\python codes\Laba9\obj\Debug\net8.0\Laba9.csproj.AssemblyReference.cache
 D:\python codes\Laba9\obj\Debug\net8.0\Laba9.csproj.CopyComplete
+D:\python codes\Laba9\obj\Debug\net8.0\Laba9.sourcelink.json

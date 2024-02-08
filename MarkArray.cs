@@ -69,10 +69,10 @@ namespace Laba9
 
         public void PrintArray()
         {
-            Console.WriteLine("Название дисциплины / Оценка за дисциплину");
+            Console.WriteLine("Название дисциплины | Оценка за дисциплину");
             for (int i = 0;i < arr.Length;i++) 
             {
-                Console.Write(arr[i].NameLimit + " ");
+                Console.Write(arr[i].NameLimit + " | ");
                 Console.WriteLine(arr[i].MarkLimit);
             }
         }

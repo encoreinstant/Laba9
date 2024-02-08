@@ -12,7 +12,34 @@ namespace Laba9
     {
         string name;
         uint mark;
-        static public int count = 0;
+        static public int count = 0;        
+        public string NameLimit
+        {
+            get => name;
+            set
+            {
+                bool isCorrectName = false;
+                for (int i  = 0; i < value.Length; i++)
+                {
+                    if (char.IsLetter(value[i]))
+                    {
+                        isCorrectName = true;
+                        break;
+                    }
+                }
+                
+                if (isCorrectName)
+                {                   
+                    name = value;
+                }
+                else
+                {
+                    Console.WriteLine("Название должно содержать хотя бы 1 букву");
+                    name = "noName";
+                    Console.WriteLine($"Текущее название дисциплины: {name}");
+                }
+            }
+        }
         public uint MarkLimit
         {
             get => mark;
@@ -20,39 +47,17 @@ namespace Laba9
             {
                 if (value >= 0 && value <= 10)
                 {
-                    mark = value;                
+                    mark = value;
                 }
                 else
                 {
                     //throw new Exception("Оценка может быть от 0 до 10");
                     Console.WriteLine("Оценка может быть от 0 до 10");
                     mark = 0;
+                    Console.WriteLine($"Текущая оценка по дисциплине: {mark}");
                 }
             }
         }
-        public string NameLimit
-        {
-            get => name;
-            set
-            {
-                if (value.Length > 0)
-                {
-                    name = value;
-                }
-                else
-                {
-                    do
-                    {
-                        Console.WriteLine("Недопустимое название дисциплины!");
-                        Console.WriteLine("Введите название предмета: ");
-                        value = Console.ReadLine();
-                    } while (value.Length == 0);
-                    name = value;
-                }
-            }
-        }
-        
-
         public Mark()
         {
             name = "noName";
@@ -116,15 +121,17 @@ namespace Laba9
             return mark5;
         }
 
-        public static string operator !(Mark m)
+        public static Mark operator !(Mark m)
         {
-            return m.name.ToUpper();
+            Mark copy_m = new Mark(m);
+            copy_m.name = copy_m.name.ToUpper();
+            return copy_m;
         }
-        public static uint operator -(Mark m)
+        public static Mark operator -(Mark m)
         {
             Mark copy_m = new Mark(m);
             copy_m.mark = 0;
-            return copy_m.mark;
+            return copy_m;
         }
 
         public static explicit operator int(Mark m)
@@ -144,11 +151,11 @@ namespace Laba9
         {
             return m.mark >= 4;
         }
-        public static string operator /(Mark m, string newName)
+        public static Mark operator /(Mark m, string newName)
         {
             Mark copy_m = new Mark(m);
-            copy_m.name = newName;
-            return copy_m.name;
+            copy_m.NameLimit = newName;
+            return copy_m;
         }
         public static bool operator >=(Mark m1, Mark m2)
         {

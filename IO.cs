@@ -17,22 +17,23 @@ namespace Laba9
         }
         static public uint InputMark()
         {
-            Console.Write("Введите оценку по дисциплине: ");
+            Console.WriteLine("Введите оценку по дисциплине: ");
             bool isCorrectInput;
             string buf;
             uint mark;
-            do
+            buf = Console.ReadLine();
+            isCorrectInput = uint.TryParse(buf, out mark);
+            if (isCorrectInput)
             {
-                buf = Console.ReadLine();
-                isCorrectInput = uint.TryParse(buf, out mark);
-                if (!isCorrectInput)
-                {
-                    Console.WriteLine("Ошибка! Введите целое число от 0 до 10");
-                    Console.Write("Введите оценку по дисциплине: ");
-                }
-
-            } while (!isCorrectInput);
-            return mark;
+                return mark;
+            }
+            else
+            {
+                Console.WriteLine("Неправильный ввод оценки");
+                Console.WriteLine($"Текущая оценка по дисциплине: 0");
+                return 0;
+            }
+                
         }
         static public void PrintInf(Mark m)
         {
