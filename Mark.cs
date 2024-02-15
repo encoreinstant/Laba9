@@ -26,8 +26,7 @@ namespace Laba9
                         isCorrectName = true;
                         break;
                     }
-                }
-                
+                }               
                 if (isCorrectName)
                 {                   
                     name = value;

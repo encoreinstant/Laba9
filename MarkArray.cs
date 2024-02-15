@@ -11,9 +11,37 @@ namespace Laba9
         static Random rnd = new Random();
         Mark[] arr;
         static public int count = 0;
+        uint length;
         public int Length
         {
             get => arr.Length;
+        }
+
+        public uint LengthLimit
+        {
+            get => length;
+            set
+            {
+                while (!(value > 0 && value <= 100))
+                {
+                    Console.WriteLine("Длина массива может быть от 1 до 100");
+                    Console.Write("Введите длину массива: ");
+                    bool isCorrectInput;
+                    string buf;
+                    do
+                    {
+                        buf = Console.ReadLine();
+                        isCorrectInput = uint.TryParse(buf, out value);
+                        if (!isCorrectInput)
+                        {
+                            Console.WriteLine("Длина массива может быть от 1 до 100");
+                            Console.Write("Введите длину массива: ");
+                        }
+                    } while (!isCorrectInput);
+                    length = value;
+                }
+                length = value;                
+            }
         }
 
         public MarkArray()
@@ -31,8 +59,26 @@ namespace Laba9
             }
             count++;
         }
+        public MarkArray(uint length)
+        {
+            LengthLimit = length;
+            string[] arrName = new string[LengthLimit];
+            uint[] arrMark = new uint[LengthLimit];
+            for (int i = 0; i < LengthLimit; i++)
+            {
+                arrName[i] = IO.InputSubject();
+                arrMark[i] = IO.InputMark();
+            }
+            arr = new Mark[LengthLimit];
+            for (int i = 0; i < LengthLimit; i++)
+            {
+                arr[i] = new Mark(arrName[i], arrMark[i]);
+            }
+            count++;
+        }
         public MarkArray(uint length, string[] arrName, uint[] arrMark)
         {
+            //LengthLimit = length;
             arr = new Mark[length];
             for (int i = 0; i < length; i++)
             {

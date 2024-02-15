@@ -16,7 +16,6 @@ namespace Laba9
                 summary = summary + m[i].MarkLimit;              
             }
             average = summary / m.Length;
-            Console.WriteLine($"Средняя оценка по всем дисциплинам: {average}");            
             for (int i = 0; i < m.Length; i++)
             {
                 if (m[i].MarkLimit > average)
@@ -24,7 +23,6 @@ namespace Laba9
                     count++; 
                 }
             }
-            Console.WriteLine($"Количество дисциплин с оценкой выше средней: {count}");
             string[] arrName = new string[count];
             uint[] arrMark = new uint[count];
             int j = 0;
@@ -92,22 +90,23 @@ namespace Laba9
             {
                 buf = Console.ReadLine();
                 isCorrectInput = uint.TryParse(buf, out length);
-                if (!isCorrectInput || !(length >= 1 && length <= 100))
+                if (!isCorrectInput)
                 {
-                    Console.WriteLine("Ошибка! Введите целое число от 1 до 100");
+                    Console.WriteLine("Ошибка! Введите натуральное число!");
                     Console.Write("Введите длину массива: ");
                 }
-            } while (!isCorrectInput || !(length >= 1 && length <= 100));
-            string[] arrName = new string[length];
-            uint[] arrMark = new uint[length];
+            } while (!isCorrectInput);
+            //string[] arrName = new string[length];
+            //uint[] arrMark = new uint[length];
 
-            for (int i = 0; i < length; i++)
-            {
-                arrName[i] = IO.InputSubject();
-                arrMark[i] = IO.InputMark();
-            }
+            //for (int i = 0; i < length; i++)
+            //{
+            //    arrName[i] = IO.InputSubject();
+            //    arrMark[i] = IO.InputMark();
+            //}
+            
             Console.WriteLine("Конструктор с параметрами, значения с клавиатуры");
-            MarkArray m8 = new MarkArray(length, arrName, arrMark);
+            MarkArray m8 = new MarkArray(length);
             Console.WriteLine("Объект #8");
             m8.PrintArray();
             Console.WriteLine("Конструктор копирования");
@@ -133,6 +132,24 @@ namespace Laba9
             }
             //Дисциплины с оценкой выше средней
             MarkArray aboveAverageMark = AboveAverageMark(m9);
+            uint count = 0;
+            double summary = 0;
+            double average = 0;
+            for (int i = 0; i < m9.Length; i++)
+            {
+                summary = summary + m9[i].MarkLimit;
+            }
+            average = summary / m9.Length;
+            Console.WriteLine($"Средняя оценка по всем дисциплинам: {average}");
+            for (int i = 0; i < m9.Length; i++)
+            {
+                if (m9[i].MarkLimit > average)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine($"Количество дисциплин с оценкой выше средней: {count}");
+
             if (aboveAverageMark.Length != 0)
             {
                 Console.WriteLine("Дисциплины с оценкой выше средней: ");
